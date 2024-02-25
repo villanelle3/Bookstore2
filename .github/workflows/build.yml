@@ -28,11 +28,11 @@ jobs:
       env:
         POETRY_HOME: /home/runner/.poetry
 
-    - name: Source poetry
-      run: source /home/runner/.poetry/env
+    - name: Add Poetry to PATH
+      run: echo "::add-path::/home/runner/.poetry/bin"
 
-    - name: View poetry --help
-      run: poetry --help
+    - name: Verify Poetry installation
+      run: poetry --version
 
     - name: Install dependencies
       shell: bash

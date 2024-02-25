@@ -4,41 +4,28 @@ on: [push]
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: [3.8, 3.9]
-        poetry-version: [1.1.4]
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.8
 
-    - name: Install poetry ${{ matrix.poetry-version }} for Python ${{ matrix.python-version }}
+    - name: Install Poetry
       run: |
-        python -m ensurepip
         python -m pip install --upgrade pip
-        python -m pip install poetry==${{ matrix.poetry-version }}
+        python -m pip install poetry
       env:
-        POETRY_HOME: /home/runner/.poetry
-
-    - name: Source Poetry environment
-      run: |
-        echo "PATH=${{ env.PATH }}:${{ env.POETRY_HOME }}/bin" >> $GITHUB_ENV
+        POETRY_VIRTUALENVS_CREATE: false
 
     - name: Verify Poetry installation
       run: poetry --version
 
     - name: Install dependencies
-      shell: bash
       run: poetry install
 
-    - name: Test
-      run: |
-        poetry run python manage.py test
+    - name: Run tests
+      run: poetry run python manage.py test

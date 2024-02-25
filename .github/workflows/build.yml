@@ -28,8 +28,9 @@ jobs:
       env:
         POETRY_HOME: /home/runner/.poetry
 
-    - name: Add Poetry to PATH
-      run: echo "::add-path::/home/runner/.poetry/bin"
+    - name: Source Poetry environment
+      run: |
+        echo "PATH=${{ env.PATH }}:${{ env.POETRY_HOME }}/bin" >> $GITHUB_ENV
 
     - name: Verify Poetry installation
       run: poetry --version

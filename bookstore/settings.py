@@ -122,7 +122,6 @@ INTERNAL_IPS = [
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
 # DEBUG = int(os.environ.get("DEBUG", default=0))
 # ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 # docker network create --driver none docker-empty

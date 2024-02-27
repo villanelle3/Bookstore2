@@ -7,7 +7,7 @@ SECRET_KEY = "django-insecure-uxb_ps&^vv3k!8f)t_+4yf5*wwfty_id20ayla6@pcfo6i!0sm
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "bookstore-loja-ee5a8c083bb2.herokuapp.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "bookstore-loja-ee5a8c083bb2.herokuapp.com", "villanelle3.pythonanywhere.com"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",

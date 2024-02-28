@@ -11,6 +11,7 @@ urlpatterns = [
     re_path("bookstore/(?P<version>(v1|v2))/", include("order.urls")),
     re_path("bookstore/(?P<version>(v1|v2))/", include("product.urls")),
     path("update_server/", views.update, name="update"),
+    path('hello/', views.hello_world, name='hello_world'),
 ]
 
 # 6d2229e19d72aa831844bcb2c3783ee79b1cf482
